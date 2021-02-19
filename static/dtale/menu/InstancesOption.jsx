@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { withTranslation } from "react-i18next";
 
 import app from "../../reducers/dtale";
-import Descriptions from "../menu-descriptions.json";
 
 class InstancesOption extends React.Component {
   constructor(props) {
@@ -17,13 +17,13 @@ class InstancesOption extends React.Component {
           <button className="btn btn-plain" onClick={this.props.open}>
             <i className="ico-apps" />
             <span className="font-weight-bold">
-              {"Instances "}
+              {`${this.props.t("menu:Instances")} `}
               <span className="badge badge-secondary">{processCt}</span>
             </span>
           </button>
         </span>
         <div className="hoverable__content menu-description">
-          <span>{Descriptions.instances}</span>
+          <span>{this.props.t("menu_description:instances")}</span>
         </div>
       </li>
     );
@@ -32,6 +32,7 @@ class InstancesOption extends React.Component {
 InstancesOption.displayName = "InstancesOption";
 InstancesOption.propTypes = {
   open: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default InstancesOption;
+export default withTranslation(["menu", "menu_description"])(InstancesOption);

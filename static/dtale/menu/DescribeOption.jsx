@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
-import Descriptions from "../menu-descriptions.json";
+import { withTranslation } from "react-i18next";
 
 class DescribeOption extends React.Component {
   constructor(props) {
@@ -14,10 +13,10 @@ class DescribeOption extends React.Component {
         <span className="toggler-action">
           <button className="btn btn-plain" onClick={this.props.open}>
             <i className="ico-view-column" />
-            <span className="font-weight-bold">Describe</span>
+            <span className="font-weight-bold">{this.props.t("menu:Describe")}</span>
           </button>
         </span>
-        <div className="hoverable__content menu-description">{Descriptions.describe}</div>
+        <div className="hoverable__content menu-description">{this.props.t("menu_description:describe")}</div>
       </li>
     );
   }
@@ -25,6 +24,7 @@ class DescribeOption extends React.Component {
 DescribeOption.displayName = "DescribeOption";
 DescribeOption.propTypes = {
   open: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default DescribeOption;
+export default withTranslation(["menu", "menu_description"])(DescribeOption);

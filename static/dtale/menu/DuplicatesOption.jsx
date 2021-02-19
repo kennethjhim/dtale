@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
-import Descriptions from "../menu-descriptions.json";
+import { withTranslation } from "react-i18next";
 
 class DuplicatesOption extends React.Component {
   constructor(props) {
@@ -14,10 +13,10 @@ class DuplicatesOption extends React.Component {
         <span className="toggler-action">
           <button className="btn btn-plain" onClick={this.props.open}>
             <i className="fas fa-clone ml-2 mr-4" />
-            <span className="font-weight-bold">Duplicates</span>
+            <span className="font-weight-bold">{this.props.t("menu:Duplicates")}</span>
           </button>
         </span>
-        <div className="hoverable__content menu-description">{Descriptions.duplicates}</div>
+        <div className="hoverable__content menu-description">{this.props.t("menu_description:duplicates")}</div>
       </li>
     );
   }
@@ -25,6 +24,7 @@ class DuplicatesOption extends React.Component {
 DuplicatesOption.displayName = "DuplicatesOption";
 DuplicatesOption.propTypes = {
   open: PropTypes.func,
+  t: PropTypes.func,
 };
 
-export default DuplicatesOption;
+export default withTranslation(["menu", "menu_description"])(DuplicatesOption);

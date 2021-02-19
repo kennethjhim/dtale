@@ -16,9 +16,11 @@
       "Highlight Outliers": "Highlight Outliers",
       "Highlight Range": "Highlight Range",
       "Low Variance Flag": "Low Variance Flag",
-      "Instances ": "Instances ",
+      "Instances": "Instances",
       "Code Export": "Code Export",
       "Export": "Export",
+      "CSV": "CSV",
+      "TSV": "TSV",
       "Load Data": "Load Data",
       "Refresh Widths": "Refresh Widths",
       "About": "About",
@@ -31,9 +33,12 @@
       "Light": "Light",
       "Dark": "Dark",
       "Range Highlights": "Range Highlights",
-      "Index": "Index"
+      "Index": "Index",
+      "Network Viewer": "Network Viewer",
+      "Merge & Stack": "Merge & Stack",
+      "ALL DATA": "ALL DATA"
     },
-    "menu_descriptions": {
+    "menu_description": {
       "describe": "Describe column's values (Top unique values, Min, Max, Sum, STD, Var,...)",
       "filter": "Defining custom Filtering for the main spreadsheet, Charts, ...",
       "build": "Creating a/multi new column based on the existing columns or random values",
@@ -59,7 +64,12 @@
       "pps": "PPS is an asymmetric, data-type-agnostic score that can detect linear or non-linear relationships between two columns. The score ranges from 0 (no predictive power) to 1 (perfect predictive power). It can be used as an alternative to the correlation (matrix). WARNING: This could take a while to load.",
       "network": "If you're currently viewing data containing information for a directed graph then try feeding it into our \"Network Viewer\"",
       "reload_data": "Force a reload of the data from the server for the current rows being viewing in the grid by clicking this button. This can be helpful when viewing the grid from within another application like jupyter or nested within another website.",
-      "merge": "Merge & Stack (concatenate vertically) dataframes currently loaded into D-Tale or upload additional ones for taht purpose."
+      "merge": "Merge & Stack (concatenate vertically) dataframes currently loaded into D-Tale or upload additional ones for taht purpose.",
+      "low_variance_1": "Show flags on column headers where both these conditions are true:",
+      "low_variance_2": "Count of unique values / column size < 10%",
+      "low_variance_3": "Count of most common value / Count of second most common value > 20",
+      "low_variance_4": "You can view variance information by clicking the \"Variance\" option in the column menu.",
+      "xarray_dim_des": "View individual xarray dimensions. You are currently viewing:"
     }
   }
 }
