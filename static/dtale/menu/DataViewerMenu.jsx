@@ -3,6 +3,7 @@ import _ from "lodash";
 import PropTypes from "prop-types";
 import React from "react";
 import { GlobalHotKeys } from "react-hotkeys";
+import { Trans, withTranslation } from "react-i18next";
 import { connect } from "react-redux";
 
 import ConditionalRender from "../../ConditionalRender";
@@ -24,7 +25,7 @@ import menuFuncs from "./dataViewerMenuUtils";
 
 class ReactDataViewerMenu extends React.Component {
   render() {
-    const { hideShutdown, dataId, menuOpen, backgroundMode, pythonVersion } = this.props;
+    const { hideShutdown, dataId, menuOpen, backgroundMode, pythonVersion, t } = this.props;
     const iframe = global.top !== global.self;
     const buttonHandlers = menuFuncs.buildHotkeyHandlers(this.props);
     const { openTab, openPopup } = buttonHandlers;
@@ -67,7 +68,9 @@ class ReactDataViewerMenu extends React.Component {
             <span className="toggler-action">
               <button className="btn btn-plain" onClick={buttonHandlers.FILTER}>
                 <i className="fa fa-filter ml-2 mr-4" />
-                <span className="font-weight-bold">Custom Filter</span>
+                <span className="font-weight-bold">
+                  <Trans t={t}>Custom Filter</Trans>
+                </span>
               </button>
             </span>
             <div className="hoverable__content menu-description">{Descriptions.filter}</div>
@@ -269,11 +272,13 @@ ReactDataViewerMenu.propTypes = {
   hideShutdown: PropTypes.bool,
   dataId: PropTypes.string.isRequired,
   pythonVersion: PropTypes.arrayOf(PropTypes.number),
+  t: PropTypes.func,
 };
 
+const TranslatedReactDataViewMenu = withTranslation("menu")(ReactDataViewerMenu);
 const ReduxDataViewerMenu = connect(
   state => _.pick(state, ["dataId", "hideShutdown", "pythonVersion"]),
   dispatch => ({ openChart: chartProps => dispatch(openChart(chartProps)) })
-)(ReactDataViewerMenu);
+)(TranslatedReactDataViewMenu);
 
-export { ReduxDataViewerMenu as DataViewerMenu, ReactDataViewerMenu };
+export { ReduxDataViewerMenu as DataViewerMenu, TranslatedReactDataViewMenu as ReactDataViewerMenu };

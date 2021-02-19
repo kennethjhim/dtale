@@ -7,6 +7,7 @@ import actions from "./actions/dtale";
 import mergeActions from "./actions/merge";
 import "./adapter-for-react-16";
 import { DataViewer } from "./dtale/DataViewer";
+import "./i18n";
 import { CodeExport } from "./popups/CodeExport";
 import { CodePopup } from "./popups/CodePopup";
 import { Correlations } from "./popups/Correlations";
